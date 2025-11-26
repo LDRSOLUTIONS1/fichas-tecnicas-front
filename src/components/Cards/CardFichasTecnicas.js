@@ -34,12 +34,6 @@ const cardVariants = {
 const CardFichasTecnicas = ({ fichastecnicas = [] }) => {
   const baseUrl = process.env.REACT_APP_BACKEND_URL.replace(/\/api$/, "");
 
-  const handleOpenPDF = (ficha) => {
-    const cleanUrl =
-      process.env.REACT_APP_BACKEND_URL?.replace("/api", "") || "";
-    window.open(`${cleanUrl}/storage/${ficha.file_path}`, "_blank");
-  };
-
   return (
     <Box sx={{ flexGrow: 1, p: 3 }}>
       {fichastecnicas.length > 0 ? (
@@ -171,7 +165,12 @@ const CardFichasTecnicas = ({ fichastecnicas = [] }) => {
                       variant="contained"
                       fullWidth
                       startIcon={<PictureAsPdfIcon />}
-                      onClick={() => handleOpenPDF(ficha)}
+                      onClick={() =>
+                        window.open(
+                          `${baseUrl}/storage/${ficha.file_path}`,
+                          "_blank"
+                        )
+                      }
                       component={motion.button}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}

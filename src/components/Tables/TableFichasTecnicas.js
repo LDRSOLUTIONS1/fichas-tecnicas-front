@@ -62,7 +62,7 @@ const TableContainerResponsive = styled(TableContainer)(({ theme }) => ({
   },
 }));
 
-export default function TableCategorias({ fichastecnicas }) {
+export default function TableFichasTecnicas({ fichastecnicas }) {
   const baseUrl = process.env.REACT_APP_BACKEND_URL.replace(/\/api$/, "");
   const { DeleteFichasTecnicas } = useContext(FichasTecnicasContext);
   const [modalUpdate, OpenModalUpdate] = useState(false);
